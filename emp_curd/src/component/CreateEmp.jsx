@@ -8,7 +8,7 @@ export default function CreateEmp() {
   const [errors, setErrors] = useState({});
 
 
-  const [employee,setEmployee]=useState({name:"",email:"",phone:"",doj:"",dept:"",salary:""})
+  const [employee,setEmployee]=useState({name:"",email:"",phone:"",doj:"",dept:"",salary:"",city:"",district:"",state:"",country:""})
 
   const navigate = useNavigate()
   function handleSubmit(e){
@@ -74,6 +74,22 @@ export default function CreateEmp() {
         <span className="input-group-text">DOJ</span>
         <input type="date" className="form-control" 
         onChange={(e)=>setEmployee({...employee,doj:e.target.value})}/>
+      </div>
+
+
+      <div className="input-group mb-3">
+        <span className="input-group-text">City</span>
+        <input type="text" className="form-control" 
+        onChange={(e)=>setEmployee({...employee,city:e.target.value})}/>
+        <span className="input-group-text">District</span>
+        <input type="text" className="form-control" 
+        onChange={(e)=>setEmployee({...employee,district:e.target.value})}/>
+        <span className="input-group-text">State</span>
+        <input type="text" className="form-control" 
+        onChange={(e)=>setEmployee({...employee,state:e.target.value})}/>
+        <span className="input-group-text">Country</span>
+        <input type="text" className="form-control" 
+        onChange={(e)=>setEmployee({...employee,country:e.target.value})}/>
       </div>
 
       <button className="btn btn btn-success" onClick={handleSubmit}>Save Details</button>

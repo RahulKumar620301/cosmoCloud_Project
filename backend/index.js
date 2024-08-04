@@ -23,15 +23,17 @@ const empSchema = new Schema({
     name: { type: String, required: [true,'Name is Required'] },
     dept: { type: String, required: [true,'Dept is Required'] },
     salary: { type: Number, required: [true,'Salary is Required'] ,    
-      min: [10000, 'Min Values is 10000'],
-      max: [40000, 'Max Values is 40000'],
-  },
-doj: { type: Date, required: [true,'Date of Joining is Required'] },
-  email: { type: String, required: [true,'Email is Required'] },
-  phone: { type: String, required: [true,'Phone is Required'] },
-  image: { type: String, default: null },
-  addeddate: { type: Date, default: Date.now },
-  active:{ type: Boolean, default: true } ,
+      min: [10000, 'Min Values is 10000'], max: [40000, 'Max Values is 40000']},
+    doj: { type: Date, required: [true,'Date of Joining is Required'] },
+    email: { type: String, required: [true,'Email is Required'] },
+    phone: { type: String, required: [true,'Phone is Required'] },
+    image: { type: String, default: null },
+    addeddate: { type: Date, default: Date.now },
+    active:{ type: Boolean, default: true } ,
+    city: { type: String, required: [true,'City is Required'] },
+    district: { type: String, required: [true,'District is Required'] },
+    state: { type: String, required: [true,'State is Required'] },
+    country: { type: String, required: [true,'Country is Required'] },
   });
 
   //model
@@ -71,7 +73,12 @@ const storage = multer.diskStorage({
         salary:parseInt(r.salary),
         doj:r.doj,
         email:r.email,
-        phone:r.phone});
+        phone:r.phone,
+        city:r.city,
+        district:r.district,
+        state:r.state,
+        country:r.country
+      });
     data.save().then(() => res.send('Record Save'));
 })
 
@@ -101,7 +108,11 @@ app.delete('/:id', (req, res) => {
             salary:parseInt(r.salary),
             doj:r.doj,
             email:r.email,
-            phone:r.phone};
+            phone:r.phone,
+            city:r.city,
+            district:r.district,
+            state:r.state,
+            country:r.country};
         Emp.updateOne({_id:id},data)
         .then((result)=>{res.send(result)})
         })

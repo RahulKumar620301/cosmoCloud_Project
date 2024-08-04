@@ -44,9 +44,11 @@ export default function ViewEmp() {
 
       <div className="col">
         <h1>{employee.name}</h1>
+        <p>Employee ID : {id} </p><hr/>
         <p>Working in {employee.dept} Department</p> <hr/>
         <p>Contact Details : {employee.email} | {employee.phone}</p> <hr/>
         <p>Joined on : {employee.doj}</p><hr/>
+        <p>Address : {employee.city}, {employee.district}, {employee.state}, {employee.country}</p>
       </div>
     </div>
     </div>
